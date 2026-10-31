@@ -93,6 +93,8 @@
   }
 
   function build() {
+    // Page loaded hidden or collapsed: wait for a real size (the resize observer retries)
+    if (slot.getBoundingClientRect().width < 40) return;
     DPR = Math.min(window.devicePixelRatio || 1, 2);
     const nl = layoutName();
     const hr = hero.getBoundingClientRect();
@@ -889,16 +891,20 @@
   }
 
   /* ---------- lifecycle ---------- */
-  let resizeTimer = 0, lastVW = window.innerWidth;
-  window.addEventListener('resize', () => {
+  let resizeTimer = 0;
+  function scheduleBuild() {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
+      if (!fontsReady) return;
+      const r = hero.getBoundingClientRect();
       // ignore pure height changes on mobile (address bar show/hide)
-      if (window.innerWidth === lastVW && Math.abs(hero.getBoundingClientRect().height - H) < 2) return;
-      lastVW = window.innerWidth;
+      if (built && Math.round(r.width) === W && Math.abs(r.height - H) < 2) return;
       build();
+      kick();
     }, 180);
-  });
+  }
+  window.addEventListener('resize', scheduleBuild);
+  if ('ResizeObserver' in window) new ResizeObserver(scheduleBuild).observe(hero);
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(([en]) => { inView = en.isIntersecting; kick(); }, { threshold: 0.02 }).observe(hero);
   }
