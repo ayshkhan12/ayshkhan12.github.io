@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Aysh Khan · Software & AI Developer</title>
+  <meta name="description" content="Muhammad Aysh Khan: First Class Computer Science graduate in Hull, UK. I build practical software for real people, and AI agents that run on instinct.">
+  <meta name="author" content="Muhammad Aysh Khan">
+  <meta name="theme-color" content="#F3EFE6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0F1217" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Aysh Khan · Software & AI Developer">
+  <meta property="og:description" content="Practical software for real people, and AI agents that run on instinct. Come and feed Adam.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>
+    (function () {
+      try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <script src="assets/data.js" defer></script>
+  <script src="assets/sim.js" defer></script>
+  <script src="assets/qlab.js" defer></script>
+  <script src="assets/main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#about">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-row">
+      <a class="brand" href="#lab" aria-label="Aysh Khan, back to top">
+        <span class="brand-dot" aria-hidden="true"></span>aysh<span class="dim">.khan</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#now">Now</a>
+        <a href="#work">Work</a>
+        <a href="#qlab">Q-Lab</a>
+        <a href="#skills">Skills</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="termBtn" type="button" aria-label="Open terminal" title="Terminal ( / )">
+          <span class="mono" aria-hidden="true">&gt;_</span>
+        </button>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch colour theme" title="Light / dark">
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8 8 0 0 1 9.4 4a8 8 0 1 0 10.6 10.6Z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile" hidden>
+      <a href="#about">About</a><a href="#now">Now</a><a href="#work">Work</a><a href="#qlab">Q-Lab</a><a href="#skills">Skills</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO / LIVE SIM ============ -->
+    <section class="hero" id="lab" aria-label="Introduction">
+      <canvas id="world" role="img" aria-label="A small creature called Adam wanders around the name Aysh Khan, looking for food and avoiding predators. Click to drop food."></canvas>
+
+      <div class="wrap hero-inner">
+        <p class="kicker solid"><span class="live-dot" aria-hidden="true"></span>Live · Specimen 001 · Hull, UK</p>
+        <h1 class="name-slot" id="nameSlot"><span class="sr-only">Muhammad Aysh Khan</span></h1>
+        <div class="hero-copy solid">
+          <p class="hero-role mono">Muhammad Aysh Khan · Software developer · AI tinkerer · First Class CS</p>
+          <p class="hero-lede">I build practical software for real people, and AI agents that run on instinct. That little blob is <b>Adam</b>. He’s hungry, a bit nervous and very curious. <span class="nowrap">Go on, feed him.</span></p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#work">See my work <span aria-hidden="true">→</span></a>
+            <a class="btn" href="#contact">Say hello</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="instrument solid" id="instrument" aria-label="Simulation controls">
+        <div class="inst-head">
+          <span class="mono">ADAM · live readout</span>
+          <button class="tiny-btn" id="simPause" type="button" aria-label="Pause simulation">❚❚</button>
+        </div>
+        <div class="tools" role="radiogroup" aria-label="Tool">
+          <button class="tool is-on" type="button" role="radio" aria-checked="true" data-tool="food"><i class="sw sw-food"></i>Food<kbd>1</kbd></button>
+          <button class="tool" type="button" role="radio" aria-checked="false" data-tool="predator"><i class="sw sw-pred"></i>Predator<kbd>2</kbd></button>
+          <button class="tool" type="button" role="radio" aria-checked="false" data-tool="shelter"><i class="sw sw-shel"></i>Shelter<kbd>3</kbd></button>
+        </div>
+        <div class="drives">
+          <div class="drive" data-drive="hunger"><span>hunger</span><b class="bar"><i></i></b><em>0.00</em></div>
+          <div class="drive" data-drive="energy"><span>energy</span><b class="bar"><i></i></b><em>0.00</em></div>
+          <div class="drive" data-drive="fear"><span>fear</span><b class="bar"><i></i></b><em>0.00</em></div>
+          <div class="drive" data-drive="curiosity"><span>curiosity</span><b class="bar"><i></i></b><em>0.00</em></div>
+        </div>
+        <p class="workspace mono">workspace ▸ <b id="wsWinner">EXPLORE</b></p>
+        <p class="thought mono" id="simThought">waking up…</p>
+        <div class="inst-foot mono">
+          <span>eaten <b id="statEaten">0</b></span>
+          <span>hits <b id="statHits">0</b></span>
+          <span>explored <b id="statCov">0%</b></span>
+          <button class="tiny-btn" id="simReset" type="button">reset</button>
+        </div>
+      </aside>
+
+      <p class="hero-hint mono" id="heroHint" aria-hidden="true">↖ click anywhere on the paper to drop food</p>
+      <a class="scroll-cue mono" href="#about" aria-label="Scroll to about">scroll ↓</a>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="wrap about-grid">
+        <div class="about-text">
+          <header class="sec-head reveal">
+            <p class="sec-label"><span>§01</span> Self-model</p>
+            <h2 class="sec-title">Software that <em>helps</em>.<br>Agents that <em>learn</em>.</h2>
+          </header>
+          <div class="prose reveal">
+            <p>I’m Aysh, a Computer Science graduate from the University of Hull (<b>First Class Honours</b>), first trained as an engineer in Hong Kong. I like building things people actually use: secure APIs, web apps, a booking site for a local business, and a rota tool for my colleagues at work.</p>
+            <p>In my own time I chase a bigger question: <b>can an AI agent learn to live in a world the way animals do</b>, driven by hunger, fear and curiosity instead of one hand-written goal? That question has taken me from tabular Q-learning to world models, episodic memory and a “global workspace”, and it’s why there’s a creature living at the top of this page.</p>
+            <p>Three years of customer-facing work in Hong Kong, London and Hull taught me the other half of engineering: listening, staying calm when things break, and explaining things clearly. I’ve tutored children, led student teams and been Employee of the Month, and I want to bring all of that to a team that builds things people rely on.</p>
+          </div>
+          <div class="about-actions reveal">
+            <button class="btn btn-primary" type="button" id="tldrBtn">Recruiter? Get the 30-second version</button>
+          </div>
+        </div>
+
+        <div class="about-side">
+          <figure class="code-card reveal" aria-label="A playful summary of me, written as code">
+            <div class="card-chrome"><i></i><i></i><i></i><span class="mono">self_model.py</span></div>
+            <pre class="code" id="selfModel"><code></code></pre>
+          </figure>
+          <dl class="stats reveal">
+            <div><dt>Honours</dt><dd><span class="count" data-to="1" data-suffix="st">1st</span></dd><p>First Class, BSc CS</p></div>
+            <div><dt>Best reward</dt><dd><span class="count" data-to="249" data-prefix="+">+249</span></dd><p>my agent, V6</p></div>
+            <div><dt>Languages</dt><dd><span class="count" data-to="5">5</span></dd><p>spoken, plus code</p></div>
+            <div><dt>IELTS</dt><dd><span class="count" data-to="8.5" data-dec="1">8.5</span></dd><p>overall band</p></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NOW ============ -->
+    <section class="section section-alt" id="now">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="sec-label"><span>§02</span> Currently running</p>
+          <h2 class="sec-title">What I’m working on <em>right now</em>.</h2>
+          <p class="sec-lede">A live look at my process list. Click a process to inspect it.</p>
+        </header>
+        <div class="top reveal" id="topPanel">
+          <div class="top-meta mono" aria-hidden="true">
+            <span>aysh@hull:~$ top</span>
+            <span id="topClock">--:--:--</span>
+            <span>load avg: <b id="topLoad">0.97</b> · procs: <b id="topCount">5</b> · uptime: since 2021</span>
+          </div>
+          <div class="top-head mono" aria-hidden="true">
+            <span>PID</span><span>PROCESS</span><span class="c-stat">STATUS</span><span class="c-cpu">CPU%</span><span class="c-prog">PROGRESS</span>
+          </div>
+          <ul class="top-list" id="topList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="sec-label"><span>§03</span> Experiments</p>
+          <h2 class="sec-title">Things I’ve <em>built</em>, <em>broken</em> and <em>learned from</em>.</h2>
+          <p class="sec-lede">Every project has lab notes: the problem, what I built, what happened and what I learned. Some have live demos inside.</p>
+        </header>
+        <div class="filters reveal" role="toolbar" aria-label="Filter projects" id="filters"></div>
+        <div class="xp-grid" id="xpGrid"></div>
+        <noscript><p>This page needs JavaScript to show projects. You can browse my code at <a href="https://github.com/ayshkhan12">github.com/ayshkhan12</a>.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ============ Q-LAB ============ -->
+    <section class="section section-alt" id="qlab">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="sec-label"><span>§04</span> Q-Lab</p>
+          <h2 class="sec-title">Teach a robot to <em>find lunch</em>.</h2>
+          <p class="sec-lede">This is tabular Q-learning, the algorithm at the heart of my honours project, running live in your browser. The agent starts knowing nothing. Every step costs a little, food is worth +10 and danger costs −10. Press <b>Train</b> and watch the arrows (its policy) organise themselves.</p>
+        </header>
+
+        <div class="qlab reveal">
+          <div class="q-board">
+            <div class="q-grid" id="qGrid" role="group" aria-label="Q-learning grid world. Click cells to edit the world."></div>
+            <div class="q-legend mono">
+              <span><i class="lg lg-start"></i>start</span>
+              <span><i class="lg lg-food"></i>food +10</span>
+              <span><i class="lg lg-danger"></i>danger −10</span>
+              <span><i class="lg lg-wall"></i>wall</span>
+              <span><i class="lg lg-val"></i>learned value</span>
+            </div>
+          </div>
+
+          <div class="q-panel">
+            <div class="q-group">
+              <p class="q-label mono">1 · Train</p>
+              <div class="q-btns">
+                <button class="btn btn-sm" type="button" data-q="watch1">Watch 1 episode</button>
+                <button class="btn btn-sm" type="button" data-q="train100">Train ×100</button>
+                <button class="btn btn-sm btn-primary" type="button" data-q="train1000">Train ×1000</button>
+              </div>
+            </div>
+            <div class="q-group">
+              <p class="q-label mono">2 · Test</p>
+              <div class="q-btns">
+                <button class="btn btn-sm" type="button" data-q="greedy">Run learned policy</button>
+                <button class="btn btn-sm btn-ghost" type="button" data-q="reset">Forget everything</button>
+              </div>
+            </div>
+            <div class="q-group">
+              <p class="q-label mono">3 · Change the world <span class="dim">(click cells)</span></p>
+              <div class="seg" role="radiogroup" aria-label="Edit tool" id="qTools">
+                <button type="button" role="radio" aria-checked="true" data-edit="wall" class="is-on">Wall</button>
+                <button type="button" role="radio" aria-checked="false" data-edit="danger">Danger</button>
+                <button type="button" role="radio" aria-checked="false" data-edit="food">Food</button>
+                <button type="button" role="radio" aria-checked="false" data-edit="start">Start</button>
+              </div>
+            </div>
+            <div class="q-group q-sliders">
+              <label><span class="mono">ε explore</span><input type="range" min="0" max="0.6" step="0.01" value="0.2" id="qEps"><output class="mono" id="qEpsOut">0.20</output></label>
+              <label><span class="mono">α learn rate</span><input type="range" min="0.05" max="1" step="0.05" value="0.5" id="qAlpha"><output class="mono" id="qAlphaOut">0.50</output></label>
+              <label><span class="mono">γ discount</span><input type="range" min="0.5" max="0.99" step="0.01" value="0.92" id="qGamma"><output class="mono" id="qGammaOut">0.92</output></label>
+            </div>
+            <div class="q-stats mono">
+              <div><span>episodes</span><b id="qEpisodes">0</b></div>
+              <div><span>success (last 50)</span><b id="qSuccess">–</b></div>
+              <div><span>avg reward (last 50)</span><b id="qAvg">–</b></div>
+            </div>
+            <canvas class="q-spark" id="qSpark" height="64" aria-label="Reward per episode chart"></canvas>
+            <p class="q-msg mono" id="qMsg">The agent hasn’t learned anything yet. Try “Watch 1 episode” to see it wander at random.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="sec-label"><span>§05</span> Wiring diagram</p>
+          <h2 class="sec-title">Skills, <em>connected</em> to where I used them.</h2>
+          <p class="sec-lede">Hover or tap a skill to light up the projects it powers. Tap a project to open its notes.</p>
+        </header>
+        <div class="wiring reveal" id="wiring">
+          <svg class="wires" id="wires" aria-hidden="true"></svg>
+          <div class="w-col w-skills"><p class="w-title mono">inputs · skills</p><ul id="wSkills"></ul></div>
+          <div class="w-col w-projects"><p class="w-title mono">outputs · projects</p><ul id="wProjects"></ul></div>
+        </div>
+        <div class="also reveal">
+          <p class="mono w-title">also in the toolbox</p>
+          <ul class="chips" id="alsoSkills"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ JOURNEY ============ -->
+    <section class="section section-alt" id="journey">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="sec-label"><span>§06</span> CHANGELOG.md</p>
+          <h2 class="sec-title">From Hong Kong to Hull, <em>one release at a time</em>.</h2>
+          <p class="sec-lede">My agents get version numbers, so I gave myself some too.</p>
+        </header>
+        <div class="branch-key mono reveal" aria-hidden="true">
+          <span><i class="bk bk-hk"></i>hong-kong</span><span><i class="bk bk-london"></i>london</span><span><i class="bk bk-hull"></i>hull (main)</span>
+        </div>
+        <ol class="changelog" id="changelog"></ol>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="wrap contact-inner">
+        <p class="sec-label reveal"><span>§07</span> Contact</p>
+        <h2 class="contact-title reveal">Got a role, a project, or a robot that needs <em>instincts</em>?</h2>
+        <p class="sec-lede reveal">I’m open to IT support, junior developer and AI/ML roles, and to building websites for local businesses. I usually reply within a day.</p>
+        <div class="contact-row reveal">
+          <a class="btn btn-primary btn-lg" id="emailBtn" href="#contact">Email me</a>
+          <button class="btn btn-lg" type="button" id="copyEmail">Copy address</button>
+        </div>
+        <ul class="socials reveal">
+          <li><a href="https://github.com/ayshkhan12" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="https://www.linkedin.com/in/ayshkhan12" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><span class="mono dim" id="emailText">email loads with JavaScript</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row mono">
+      <span>© <span id="year">2026</span> Muhammad Aysh Khan · Hull, UK</span>
+      <span id="footerStat">Adam has eaten 0 seeds since you arrived.</span>
+      <span>press <kbd>/</kbd> for the terminal</span>
+    </div>
+  </footer>
+
+  <!-- ============ DIALOGS ============ -->
+  <dialog class="notes" id="notes" aria-labelledby="notesTitle">
+    <div class="notes-inner" id="notesBody"></div>
+  </dialog>
+
+  <dialog class="term" id="term" aria-label="Terminal">
+    <div class="term-chrome"><i></i><i></i><i></i><span class="mono">visitor@aysh: ~</span><button class="tiny-btn term-close" type="button" id="termClose" aria-label="Close terminal">esc</button></div>
+    <div class="term-out mono" id="termOut" aria-live="polite"></div>
+    <form class="term-in mono" id="termForm" autocomplete="off">
+      <label for="termInput"><span class="prompt">visitor@aysh:~$</span></label>
+      <input id="termInput" type="text" spellcheck="false" autocapitalize="off" aria-label="Command">
+    </form>
+  </dialog>
+
+  <div class="toast mono" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
