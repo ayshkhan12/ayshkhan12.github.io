@@ -1,5 +1,5 @@
 /* ==========================================================
-   Adam: a tiny instinct-driven creature living in the hero.
+   Adam: a tiny instinct driven creature living on the Lab page.
    Four drives (hunger, energy, fear, curiosity) compete for a
    "global workspace"; the winner decides what Adam does next.
    The letters of the name are physical walls in his world.
@@ -13,6 +13,8 @@
   const hero = canvas.parentElement;
   const slot = document.getElementById('nameSlot');
   const header = document.getElementById('siteHeader');
+  // height of the site header where it overlaps the stage (0 when the stage sits below it)
+  const topPad = () => header ? Math.max(0, Math.round(header.getBoundingClientRect().bottom - hero.getBoundingClientRect().top)) : 0;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const CELL = 10;
@@ -124,7 +126,7 @@
       const r = el.getBoundingClientRect();
       if (r.width && r.height) o.fillRect(r.left - hr.left - 6, r.top - hr.top - 6, r.width + 12, r.height + 12);
     });
-    o.fillRect(0, 0, W, header.offsetHeight + 4);
+    o.fillRect(0, 0, W, topPad() + 4);
     const px = o.getImageData(0, 0, W, H).data;
 
     const raw = new Uint8Array(N);
@@ -782,7 +784,7 @@
     const w = ctx.measureText(bubble.text).width + 16, h = 22;
     let x = agent.x - w / 2, y = agent.y - agent.r - 38;
     x = clamp(x, 6, W - w - 6);
-    if (y < header.offsetHeight + 6) y = agent.y + agent.r + 16;
+    if (y < topPad() + 6) y = agent.y + agent.r + 16;
     ctx.globalAlpha = clamp(bubble.t / 0.3, 0, 1);
     rr(x, y, w, h, 8);
     ctx.fillStyle = C.card; ctx.fill();

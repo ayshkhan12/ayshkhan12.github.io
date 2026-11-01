@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Lab · Aysh Khan</title>
+  <meta name="description" content="Two live AI demos: Adam, an instinct driven creature, and a Q learning robot you can train in your browser.">
+  <meta name="author" content="Muhammad Aysh Khan">
+  <meta name="theme-color" content="#F3EFE6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0F1217" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lab · Aysh Khan">
+  <meta property="og:description" content="Two live AI demos: Adam, an instinct driven creature, and a Q learning robot you can train in your browser.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>
+    (function () {
+      try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <script src="assets/data.js" defer></script>
+  <script src="assets/site.js" defer></script>
+  <script src="assets/sim.js" defer></script>
+  <script src="assets/qlab.js" defer></script>
+</head>
+<body data-page="lab">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html"><span class="brand-dot" aria-hidden="true"></span>Aysh Khan</a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="lab.html" aria-current="page">Lab</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch between light and dark theme" title="Light or dark">
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8 8 0 0 1 9.4 4a8 8 0 1 0 10.6 10.6Z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile" hidden><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="lab.html" aria-current="page">Lab</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="lab-intro">
+        <p class="eyebrow">Lab</p>
+        <h1 class="page-title">Meet Adam</h1>
+        <p class="page-lede">Adam is driven by four instincts: hunger, energy, fear and curiosity. They compete for his attention, and the winner decides what he does next. The letters of my name are walls in his world. Click to drop food, or switch tools to release a predator or build a shelter.</p>
+      </header>
+    </div>
+
+    <section class="lab-stage" aria-label="Adam simulation">
+      <canvas id="world" role="img" aria-label="A small creature called Adam wanders around the name Aysh Khan, looking for food and avoiding predators. Click to drop food."></canvas>
+      <div class="wrap stage-inner"><p class="name-slot" id="nameSlot"><span class="sr-only">Aysh Khan</span></p></div>
+      <aside class="instrument solid" id="instrument" aria-label="Simulation controls">
+        <div class="inst-head">
+          <span class="mono">Adam &middot; live readout</span>
+          <button class="tiny-btn" id="simPause" type="button" aria-label="Pause simulation">&#10074;&#10074;</button>
+        </div>
+        <div class="tools" role="radiogroup" aria-label="Tool">
+          <button class="tool is-on" type="button" role="radio" aria-checked="true" data-tool="food"><i class="sw sw-food"></i>Food<kbd>1</kbd></button>
+          <button class="tool" type="button" role="radio" aria-checked="false" data-tool="predator"><i class="sw sw-pred"></i>Predator<kbd>2</kbd></button>
+          <button class="tool" type="button" role="radio" aria-checked="false" data-tool="shelter"><i class="sw sw-shel"></i>Shelter<kbd>3</kbd></button>
+        </div>
+        <div class="drives">
+          <div class="drive" data-drive="hunger"><span>hunger</span><b class="bar"><i></i></b><em>0.00</em></div>
+          <div class="drive" data-drive="energy"><span>energy</span><b class="bar"><i></i></b><em>0.00</em></div>
+          <div class="drive" data-drive="fear"><span>fear</span><b class="bar"><i></i></b><em>0.00</em></div>
+          <div class="drive" data-drive="curiosity"><span>curiosity</span><b class="bar"><i></i></b><em>0.00</em></div>
+        </div>
+        <p class="workspace mono">in control: <b id="wsWinner">EXPLORE</b></p>
+        <p class="thought mono" id="simThought">waking up&hellip;</p>
+        <div class="inst-foot mono">
+          <span>eaten <b id="statEaten">0</b></span>
+          <span>hits <b id="statHits">0</b></span>
+          <span>explored <b id="statCov">0%</b></span>
+          <button class="tiny-btn" id="simReset" type="button">reset</button>
+        </div>
+      </aside>
+      <p class="hero-hint mono" id="heroHint" aria-hidden="true">click anywhere to drop food</p>
+    </section>
+
+    <section class="section" id="qlab">
+      <div class="wrap">
+        <div class="sec-row"><div>
+          <h2 class="sec-title">Teach a robot to find lunch</h2>
+          <p class="sec-sub">This is tabular Q learning, the algorithm at the heart of my honours project. The agent starts knowing nothing. Each step costs a little, food is worth 10 points and danger costs 10. Press <b>Train</b> and watch the arrows (its policy) organise themselves.</p>
+        </div></div>
+        <div class="qlab">
+          <div class="q-board">
+            <div class="q-grid" id="qGrid" role="group" aria-label="Q learning grid world. Click cells to edit the world."></div>
+            <div class="q-legend mono">
+              <span><i class="lg lg-start"></i>start</span>
+              <span><i class="lg lg-food"></i>food +10</span>
+              <span><i class="lg lg-danger"></i>danger &minus;10</span>
+              <span><i class="lg lg-wall"></i>wall</span>
+              <span><i class="lg lg-val"></i>learned value</span>
+            </div>
+          </div>
+          <div class="q-panel">
+            <div class="q-group">
+              <p class="q-label mono">1. Train</p>
+              <div class="q-btns">
+                <button class="btn btn-sm" type="button" data-q="watch1">Watch 1 episode</button>
+                <button class="btn btn-sm" type="button" data-q="train100">Train &times;100</button>
+                <button class="btn btn-sm btn-primary" type="button" data-q="train1000">Train &times;1000</button>
+              </div>
+            </div>
+            <div class="q-group">
+              <p class="q-label mono">2. Test</p>
+              <div class="q-btns">
+                <button class="btn btn-sm" type="button" data-q="greedy">Run learned policy</button>
+                <button class="btn btn-sm btn-ghost" type="button" data-q="reset">Forget everything</button>
+              </div>
+            </div>
+            <div class="q-group">
+              <p class="q-label mono">3. Change the world <span class="dim">(click cells)</span></p>
+              <div class="seg" role="radiogroup" aria-label="Edit tool" id="qTools">
+                <button type="button" role="radio" aria-checked="true" data-edit="wall" class="is-on">Wall</button>
+                <button type="button" role="radio" aria-checked="false" data-edit="danger">Danger</button>
+                <button type="button" role="radio" aria-checked="false" data-edit="food">Food</button>
+                <button type="button" role="radio" aria-checked="false" data-edit="start">Start</button>
+              </div>
+            </div>
+            <div class="q-group q-sliders">
+              <label><span class="mono">&epsilon; explore</span><input type="range" min="0" max="0.6" step="0.01" value="0.2" id="qEps"><output class="mono" id="qEpsOut">0.20</output></label>
+              <label><span class="mono">&alpha; learn rate</span><input type="range" min="0.05" max="1" step="0.05" value="0.5" id="qAlpha"><output class="mono" id="qAlphaOut">0.50</output></label>
+              <label><span class="mono">&gamma; discount</span><input type="range" min="0.5" max="0.99" step="0.01" value="0.92" id="qGamma"><output class="mono" id="qGammaOut">0.92</output></label>
+            </div>
+            <div class="q-stats mono">
+              <div><span>episodes</span><b id="qEpisodes">0</b></div>
+              <div><span>success (last 50)</span><b id="qSuccess">&ndash;</b></div>
+              <div><span>avg reward (last 50)</span><b id="qAvg">&ndash;</b></div>
+            </div>
+            <canvas class="q-spark" id="qSpark" height="64" aria-label="Reward per episode chart"></canvas>
+            <p class="q-msg mono" id="qMsg">The agent hasn&rsquo;t learned anything yet. Try &ldquo;Watch 1 episode&rdquo; to see it wander at random.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <span>&copy; <span id="year">2026</span> Muhammad Aysh Khan &middot; Hull</span>
+      <div class="footer-links">
+        <a href="#" data-email>Email</a>
+        <a href="https://www.linkedin.com/in/ayshkhan12" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/ayshkhan12" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

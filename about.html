@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>About · Aysh Khan</title>
+  <meta name="description" content="About Muhammad Aysh Khan: experience, education and skills.">
+  <meta name="author" content="Muhammad Aysh Khan">
+  <meta name="theme-color" content="#F3EFE6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0F1217" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About · Aysh Khan">
+  <meta property="og:description" content="About Muhammad Aysh Khan: experience, education and skills.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>
+    (function () {
+      try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <script src="assets/data.js" defer></script>
+  <script src="assets/site.js" defer></script>
+</head>
+<body data-page="about">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html"><span class="brand-dot" aria-hidden="true"></span>Aysh Khan</a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="lab.html">Lab</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch between light and dark theme" title="Light or dark">
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8 8 0 0 1 9.4 4a8 8 0 1 0 10.6 10.6Z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile" hidden><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="lab.html">Lab</a><a href="about.html" aria-current="page">About</a><a href="contact.html">Contact</a></nav>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="page-head">
+        <p class="eyebrow">About</p>
+        <h1 class="page-title">Hi, I&rsquo;m Aysh</h1>
+      </header>
+      <div class="about-grid">
+        <div class="prose">
+          <p>I&rsquo;m a Computer Science graduate from the University of Hull with <b>First Class Honours</b>, and I first trained as an engineer in Hong Kong. I like building things people actually use: secure APIs, web apps, a mobile app for finding halal food, and a rota tool for my colleagues at work.</p>
+          <p>In my own time I chase a bigger question: <b>can an AI agent learn to live in a world the way animals do</b>, driven by hunger, fear and curiosity instead of one handwritten goal? That question has taken me from tabular Q learning to world models, episodic memory and a &ldquo;global workspace&rdquo;. You can meet the simplest version of it on the <a href="lab.html">Lab</a> page.</p>
+          <p>Three years of customer facing work in Hong Kong, London and Hull taught me the other half of engineering: listening, staying calm when things break, and explaining things clearly. I&rsquo;ve tutored children, led student teams and been Employee of the Month, and I want to bring all of that to a team that builds things people rely on.</p>
+        </div>
+        <aside class="side-card">
+          <dl>
+            <div><dt>Based in</dt><dd>Hull, happy to relocate</dd></div>
+            <div><dt>Looking for</dt><dd>Graduate roles in software development, AI and ML, or IT support</dd></div>
+            <div><dt>Degree</dt><dd>BSc (Hons) Computer Science, First Class</dd></div>
+            <div><dt>Contact</dt><dd><a href="#" data-email="text">email</a></dd></div>
+          </dl>
+          <div class="cta-row" style="margin-top:18px">
+            <a class="btn btn-sm btn-primary" href="contact.html">Get in touch</a>
+            <a class="btn btn-sm" href="https://www.linkedin.com/in/ayshkhan12" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <section class="section" style="margin-top:32px">
+      <div class="wrap">
+        <div class="sec-row"><h2 class="sec-title">Experience</h2></div>
+        <ol class="timeline" id="experience"></ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-row"><h2 class="sec-title">Education</h2></div>
+        <ol class="timeline" id="education"></ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="sec-row"><div><h2 class="sec-title">Skills</h2><p class="sec-sub">See them in use on the <a href="projects.html">Projects</a> page.</p></div></div>
+        <div class="skill-groups" id="skills"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="skill-groups">
+          <section><h3>Awards and leadership</h3><ul class="plain-list" id="awards"></ul></section>
+          <section><h3>Languages spoken</h3><ul class="plain-list" id="languages"></ul></section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <span>&copy; <span id="year">2026</span> Muhammad Aysh Khan &middot; Hull</span>
+      <div class="footer-links">
+        <a href="#" data-email>Email</a>
+        <a href="https://www.linkedin.com/in/ayshkhan12" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/ayshkhan12" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Contact · Aysh Khan</title>
+  <meta name="description" content="Get in touch with Muhammad Aysh Khan.">
+  <meta name="author" content="Muhammad Aysh Khan">
+  <meta name="theme-color" content="#F3EFE6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0F1217" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact · Aysh Khan">
+  <meta property="og:description" content="Get in touch with Muhammad Aysh Khan.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>
+    (function () {
+      try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <script src="assets/data.js" defer></script>
+  <script src="assets/site.js" defer></script>
+</head>
+<body data-page="contact">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html"><span class="brand-dot" aria-hidden="true"></span>Aysh Khan</a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="lab.html">Lab</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch between light and dark theme" title="Light or dark">
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8 8 0 0 1 9.4 4a8 8 0 1 0 10.6 10.6Z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile" hidden><a href="index.html">Home</a><a href="projects.html">Projects</a><a href="lab.html">Lab</a><a href="about.html">About</a><a href="contact.html" aria-current="page">Contact</a></nav>
+  </header>
+
+  <main id="main">
+    <div class="wrap narrow">
+      <header class="page-head">
+        <p class="eyebrow">Contact</p>
+        <h1 class="page-title">Let&rsquo;s talk</h1>
+        <p class="page-lede">I&rsquo;m open to graduate roles in software development, AI and ML, and IT support, and to building websites for local businesses. I usually reply within a day.</p>
+      </header>
+      <div class="contact-card">
+        <div class="cta-row" style="margin-top:0">
+          <a class="btn btn-primary btn-lg" href="#" data-email>Email me</a>
+          <button class="btn btn-lg" type="button" data-copy-email>Copy email address</button>
+        </div>
+        <ul class="contact-list">
+          <li><span>Email</span><a href="#" data-email="text">email</a></li>
+          <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/ayshkhan12" target="_blank" rel="noopener">linkedin.com/in/ayshkhan12</a></li>
+          <li><span>GitHub</span><a href="https://github.com/ayshkhan12" target="_blank" rel="noopener">github.com/ayshkhan12</a></li>
+          <li><span>Location</span><b>Hull</b></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <span>&copy; <span id="year">2026</span> Muhammad Aysh Khan &middot; Hull</span>
+      <div class="footer-links">
+        <a href="#" data-email>Email</a>
+        <a href="https://www.linkedin.com/in/ayshkhan12" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/ayshkhan12" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
